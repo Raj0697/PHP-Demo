@@ -1,0 +1,161 @@
+<HTML>
+<head>
+<title>raj</title>
+<script type="text/javascript">
+function validate()
+{	
+	var id=document.getElementById("userid").value;
+	var x = id.length;
+	id=id.trim();
+	
+	var name=document.getElementById("namea").value;
+	var correct=/^[ A-Za-z]+$/;
+	name=name.trim();
+	
+	var add=document.getElementById("area").value;
+	add=add.trim();
+	var a=add.length;
+	
+	// ID
+	if(x==0 || x!=6)
+	{
+		document.getElementById("message").innerHTML=" *id should contain six values !!";
+		document.getElementById("userid").focus();
+		return false;
+	}
+	else{document.getElementById("message").innerHTML="";}
+	
+	//NAME
+	if(name=="")
+	{
+		document.getElementById("message2").innerHTML=" *please enter the name";
+		document.getElementById("namea").focus();
+		return false;
+	}
+	else if(name.match(correct))
+	{document.getElementById("message2").innerHTML="";}
+	else
+	{
+		document.getElementById("message2").innerHTML=" *numbers and special characters are not allowed";
+		document.getElementById("namea").focus();
+		return false;
+	}
+		
+	// SEX
+	var m =document.getElementById("sex1").checked;
+	var f=document.getElementById("sex2").checked;
+	if(m==false && f==false)
+	{
+		alert("select the gender!!");
+		return false;
+	}
+	else{}
+	
+	// ADDRESS
+	if(a==0)
+	{
+		document.getElementById("message3").innerHTML=" *address field is empty";
+		document.getElementById("area").focus();
+		return false;
+	}
+	else{document.getElementById("message3").innerHTML="";}
+	
+	// MARITAL STATUS
+	var s=document.getElementById("m1").checked;
+	var m=document.getElementById("m2").checked;
+	var d=document.getElementById("m3").checked;
+	var w=document.getElementById("m4").checked;
+	if(s==false && m==false && d==false && w==false)
+	{
+		alert("select the marital status!!!");
+		return false;
+	}
+	else{}
+	
+	// EDUCATIONAL QUALIFICATION
+	if(document.raj.educ.value=="-1")
+	{
+		alert("select the qualification!!");
+		return false;
+	}
+	else{}
+}
+</script>
+<body>
+<form name="raj" action="ex1.php" onsubmit="return confirm('are you sure!')" >
+<fieldset>
+	<legend>PERSONAL DETAILS</legend>
+<table border="10" bordercolor="blue"  cellpadding="10" cellspacing="5" >
+<col align="right">
+																		
+<tr>
+<th>1.</th>
+<td>ID</td>
+<td>
+<input type="text" name="ID" placeholder="Enter the id" id="userid" maxlength="6"	/>
+<span id="message" style="color:red;"></span>
+</td>
+</tr>
+
+<tr>
+<th>2.</th>
+<td>NAME</td>
+<td>
+<input type="text" name="NAME" placeholder="Enter the name" id="namea" maxlength="30"  />
+<span id="message2" style="color:red;"></span>
+</td>
+</tr>
+
+<tr>
+<th>3.</th>
+<td>SEX</td>
+<td>
+<input type="radio"  name="SEX" value="MALE" id="sex1" />MALE
+<input type="radio" name="SEX" value="FEMALE" id="sex2" />FEMALE
+</td>
+</tr>
+
+<tr>
+<th>4.</th>
+<td>ADDRESS</td>
+<td>
+<textarea rows="3" id="area" placeholder="Enter the address"  cols="30" name="address" ></textarea>
+<span id="message3" style="color:red;"></span>
+</td>
+</tr>
+
+<tr>
+<th>5.</th>
+<td>MARITAL STATUS</td>
+<td>
+<input type="radio" name="maritalstatus" value="SINGLE" id="m1" />SINGLE
+<input type="radio" name="maritalstatus" value="MARRIED" id="m2" />MARRIED
+<input type="radio" name="maritalstatus" value="DIVORSED" id="m3" />DIVORSED
+<input type="radio" name="maritalstatus" value="WIDOW" id="m4" />WIDOW
+</td>
+</tr>
+
+<tr>
+<th>6.</th>
+<td>EDUCATIONAL QUALIFICATION</TD>
+<td>
+<select name="educ" id="selection">
+<option value="-1" selected>[choose yours]</option>
+<option value="1">ug</option>
+<option value="2">pg</option>
+<option value="3">doctrate</option>
+</td>
+</tr>
+
+</legend>
+</fieldset>
+</table>
+</br>
+<input type="SUBMIT" name="SUBMIT" value="SUBMIT" onclick="return validate();" />
+&ensp;&ensp;&ensp;
+<input type="reset" name="RESET" value="RESET" onclick="return confirm('are you sure!')" />
+
+</form>
+</body>	
+</head>
+</html>

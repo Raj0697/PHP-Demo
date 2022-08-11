@@ -1,0 +1,85 @@
+<html>
+<head>
+<title>web form</title>
+</head>
+<script type="text/javascript">
+function validate()
+{
+	//products
+	if(document.raj.pro.value=="select")
+	{
+		alert("Select the products");
+		return false;
+	}
+	
+	//sex
+	var ma=document.getElementById("n3").checked;
+	var fe=document.getElementById("n4").checked;
+	if(ma==false && fe==false)
+	{
+		alert("select the sex");
+		return false;
+	}
+	//type
+	var typ=document.getElementById("n5").checked;
+	var typ1=document.getElementById("n6").checked;
+	if(typ==false && typ1==false)
+	{
+		alert("select");
+		return false;
+	}
+}
+
+
+</script>
+<body bgcolor="#fff">
+<center>
+<h1 style="font:arial 25px normal;">Welcome to online bill</h1>
+<form name="raj" action="insert.php" method="post" onsubmit="return validate();">
+<table border="5" cellpadding="10" cellspacing="5">
+<tr>
+<th>1.</th>
+<td>products</td>
+<td><select name="pro" id="selection">
+<option value="select">select</option>
+<option ="balloon">balloon</option>
+<option ="coolmenthol">coolmenthol</option>
+<option ="durex">durex</option>
+</select>
+</td></tr>
+
+<tr>
+<th>4.</th>
+<td>id</td>
+<td><input type="text" name="iid" id="i1"></td>
+</tr>
+
+<tr>
+<th>2.</th>
+<td>sex</td>
+<td><input type="radio" name="gen" id="n3" value="male">male
+<input type="radio" name="gen" id="n4" value="female">female
+</td>
+</tr>
+
+<tr>
+<th>3.</th>
+<td>marriage type</td>
+<td><input type="checkbox" name="mar" id="n5" value="love">love
+<input type="checkbox" name="mar" id="n6" value="livein">livein
+<input type="checkbox" name="mar" id="n7" value="arrange">arrange
+</td>
+</tr>
+
+</table>
+
+<br><br>
+<input type="submit" value="submit">&ensp;&ensp;
+<input type="button" value="delete">&ensp;&ensp;
+<input type="button" value="view">&ensp;&ensp;
+<input type="reset" value="clear">&ensp;&ensp;
+</form>
+</fieldset>
+</center>
+</body>
+</html>
